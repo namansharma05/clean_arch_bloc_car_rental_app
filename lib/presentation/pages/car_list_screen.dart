@@ -1,0 +1,43 @@
+import 'package:clean_arch_bloc_car_rental_app/data/models/car.dart';
+import 'package:clean_arch_bloc_car_rental_app/presentation/widgets/car_card.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class CarListScreen extends StatelessWidget {
+  final List<Car> cars = [
+    Car(model: "Fortuner", distance: 870, fuelCapacity: 50, pricePerHour: 45),
+    Car(model: "Fortuner", distance: 870, fuelCapacity: 50, pricePerHour: 45),
+    Car(model: "Fortuner", distance: 870, fuelCapacity: 50, pricePerHour: 45),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: SizedBox(
+            height: 50,
+            width: 60,
+            child: const Icon(CupertinoIcons.back),
+          ),
+        ),
+        centerTitle: true,
+        title: Text('Choose Your Car'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+      ),
+      body: ListView.builder(
+        itemCount: cars.length,
+        itemBuilder: (context, index) {
+          return CarCard(
+            car: cars[index],
+          );
+        },
+      ),
+    );
+  }
+}
