@@ -1,4 +1,5 @@
 import 'package:clean_arch_bloc_car_rental_app/data/models/car.dart';
+import 'package:clean_arch_bloc_car_rental_app/presentation/pages/map_details_page.dart';
 import 'package:clean_arch_bloc_car_rental_app/presentation/widgets/car_card.dart';
 import 'package:clean_arch_bloc_car_rental_app/presentation/widgets/more_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -80,20 +81,30 @@ class CarDetailsPage extends StatelessWidget {
                   width: 20,
                 ),
                 Expanded(
-                  child: Container(
-                    height: 170,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                            image: AssetImage('assets/maps.png'),
-                            fit: BoxFit.cover),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          )
-                        ]),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MapDetailsPage(
+                                    car: car,
+                                  )));
+                    },
+                    child: Container(
+                      height: 170,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                              image: AssetImage('assets/maps.png'),
+                              fit: BoxFit.cover),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 10,
+                              spreadRadius: 5,
+                            )
+                          ]),
+                    ),
                   ),
                 ),
               ],

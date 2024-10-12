@@ -14,17 +14,6 @@ class CarListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: SizedBox(
-            height: 50,
-            width: 60,
-            child: const Icon(CupertinoIcons.back),
-          ),
-        ),
         centerTitle: true,
         title: Text('Choose Your Car'),
         backgroundColor: Colors.white,
